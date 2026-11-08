@@ -28,7 +28,7 @@ npm run check    # contrast check only
 - **Tweak a colour:** edit its theme block in `tokens.css`, then `npm run check`. It fails if text contrast drops too low.
 - **New palette:** copy a `[data-theme="…"]` block in `tokens.css` and give it a name. The build picks it up automatically.
 - **Softer or sharper corners:** change `--radius-button`, `--radius-card` etc. in `tokens.css`.
-- **Hide the card-front watermark:** `--card-pattern-opacity: 0`.
+- **Show the card-front watermark:** `--card-pattern-opacity: 14%` (off by default).
 - **Different card details:** edit `card/index.html`, then `npm run build`.
 
-Printing: send `dist/helix-card-<palette>.pdf`. The page is 3.75 × 2.25 in with bleed, trimmed to 3.5 × 2 in. Colours are RGB; ask the printer to convert to CMYK and to show a proof first.
+Printing: send the PDFs in `dist/print/`. The page is 3.75 × 2.25 in with bleed, trimmed to 3.5 × 2 in. Colours are RGB; ask the printer to convert to CMYK and to show a proof first.
