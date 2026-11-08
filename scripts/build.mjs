@@ -9,7 +9,12 @@ import { checkContrast } from "./check.mjs";
 
 const SITE = "https://helixbiology.sch.ac";
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const PORT = 4321;
+// Files for the printer: one PDF per entry, written to dist/print/.
+const PRINT = [
+  { theme: "noir", tagline: "For future doctors" },
+  { theme: "noir", tagline: "Where future doctors begin" },
+];
+const PORT = 4322; // not 4321, so it runs alongside `npm run dev`
 const at = p => fileURLToPath(new URL(`../${p}`, import.meta.url));
 
 const themes = checkContrast();
@@ -40,6 +45,14 @@ try {
     await chrome(`--print-to-pdf=${at(`dist/helix-card-${t}.pdf`)}`, "--no-pdf-header-footer", url);
     await chrome(`--screenshot=${at(`dist/helix-card-${t}.png`)}`, "--window-size=816,288", "--force-device-scale-factor=3", url);
     console.log("built", t);
+  }
+  await mkdir(at("dist/print"), { recursive: true });
+  for (const { theme, tagline } of PRINT) {
+    const slug = tagline.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    const url = `http://localhost:${PORT}/card/?theme=${theme}&tagline=${encodeURIComponent(tagline)}`;
+    await chrome(`--print-to-pdf=${at(`dist/print/helix-card-${theme}-${slug}.pdf`)}`, "--no-pdf-header-footer", url);
+    await chrome(`--screenshot=${at(`dist/print/helix-card-${theme}-${slug}.png`)}`, "--window-size=816,288", "--force-device-scale-factor=3", url);
+    console.log("print", theme, tagline);
   }
 } finally {
   server.close();

@@ -2,9 +2,11 @@
 
 /* ── Logo lockup ─────────────────────────────────────────────────────────── */
 .lockup { display: inline-flex; flex-direction: column; align-items: center; color: var(--logo-fg); }
-.lockup--inline { flex-direction: row; gap: 0.6em; }
+.lockup--inline { flex-direction: row; gap: 0.5em; }
+.lockup--inline .lockup__mark { width: 1.55em; height: 1.55em; } /* matches the HELIX + BIOLOGY block height */
+[data-mark="h"] .lockup--inline .lockup__mark { width: 1.1em; } /* the H is narrower than tall; no side padding */
 .lockup--inline .lockup__words { align-items: flex-start; }
-.lockup__mark { width: 2.4em; height: 2.4em; display: block; }
+.lockup__mark { width: 2.4em; height: 2.4em; display: block; flex: none; }
 [data-mark="none"] .lockup__mark { display: none; }
 .lockup__words { display: flex; flex-direction: column; align-items: center; }
 .lockup__name {
@@ -70,6 +72,7 @@
 .btn--accent:active { background: color-mix(in srgb, var(--c-accent) 88%, var(--c-primary)); }
 
 /* On a dark (primary) surface */
+.on-primary .lockup__sub { color: var(--c-accent-on-primary, var(--c-accent)); }
 .on-primary { background: var(--c-primary); color: var(--c-on-primary); --logo-fg: var(--c-paper); --logo-bg: var(--c-primary); --c-focus: var(--c-accent); }
 .on-primary .btn--primary { background: var(--c-paper); color: var(--c-primary); }
 .on-primary .btn--primary:hover { background: color-mix(in srgb, var(--c-paper) 88%, var(--c-primary)); }

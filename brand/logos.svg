@@ -17,12 +17,12 @@
   </symbol>
 
   <!-- H monogram: two stems, crossbar twisted like a DNA turn. -->
-  <symbol id="mark-h" viewBox="16 8 68 84">
+  <symbol id="mark-h" viewBox="21 9 58 82">
     <g fill="none" stroke-linecap="round">
       <path style="stroke:var(--logo-fg);stroke-width:var(--logo-stroke)" d="M27 14V86M73 14V86"/>
-      <path style="stroke:var(--logo-detail);stroke-width:var(--logo-detail-stroke)" d="M27 36C50 36 50 64 73 64"/>
+      <path style="stroke:var(--logo-detail);stroke-width:calc(var(--logo-detail-stroke) * 1.5)" d="M27 36C50 36 50 64 73 64"/>
       <path style="stroke:var(--logo-bg);stroke-width:calc(var(--logo-halo) * 0.7)" stroke-linecap="butt" d="M45.04 55.73C48.52 52.11 51.48 47.89 54.96 44.27"/>
-      <path style="stroke:var(--logo-detail);stroke-width:var(--logo-detail-stroke)" d="M27 64C50 64 50 36 73 36"/>
+      <path style="stroke:var(--logo-detail);stroke-width:calc(var(--logo-detail-stroke) * 1.5)" d="M27 64C50 64 50 36 73 36"/>
     </g>
   </symbol>
 

@@ -31,8 +31,8 @@ html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
 .front { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
 .front .lockup { font-size: 19pt; }
-.front .lockup__mark { width: 0.44in; height: 0.44in; margin-bottom: 0.1in; }
-.front .lockup__sub { font-size: 5.5pt; margin-top: 0.075in; }
+.front .lockup__words { align-items: flex-start; }
+.front .lockup__sub { font-size: 5.5pt; margin-top: 0.075in; color: var(--c-accent-on-primary, var(--c-accent)); }
 .rule { width: 0.3in; border: 0; border-top: var(--stroke-print) solid var(--c-accent); margin: 0.11in auto 0.085in; }
 .tagline {
   font: italic var(--weight-regular) 9pt/1 var(--font-display);

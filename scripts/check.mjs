@@ -8,6 +8,7 @@ export function palettes() {
   const out = {};
   for (const [, name, body] of css.matchAll(/\[data-theme="(\w+)"\]\s*\{([^}]*)\}/g)) {
     out[name] = Object.fromEntries([...body.matchAll(/--c-([\w-]+):\s*(#[0-9a-fA-F]{6})/g)].map(m => [m[1], m[2]]));
+    out[name]["accent-on-primary"] ??= out[name].accent; // optional token, falls back to accent
   }
   return out;
 }
@@ -25,7 +26,8 @@ const pairs = [
   ["primary", "paper", 7, "headings, buttons, QR"],
   ["paper", "primary", 7, "text on card front"],
   ["accent-ink", "paper", 4.5, "small labels on paper"],
-  ["accent", "primary", 4.5, "small BIOLOGY caps on front"],
+  ["accent", "primary", 3, "rules and logo detail on front"],
+  ["accent-on-primary", "primary", 4.5, "small BIOLOGY caps on front"],
 ];
 
 export function checkContrast() {

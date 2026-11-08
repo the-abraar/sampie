@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="ink" data-mark="helix">
+<html lang="en" data-theme="oxblood" data-mark="h">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,16 +42,19 @@
     <div class="inner">
       <span class="label">Palette</span>
       <div class="row" data-param="theme">
-        <a class="btn btn--secondary btn--sm" data-value="ink">Ink &amp; Gold</a>
-        <a class="btn btn--secondary btn--sm" data-value="forest">Forest</a>
         <a class="btn btn--secondary btn--sm" data-value="oxblood">Oxblood</a>
-        <a class="btn btn--secondary btn--sm" data-value="teal">Teal</a>
         <a class="btn btn--secondary btn--sm" data-value="mono">Mono</a>
+        <a class="btn btn--secondary btn--sm" data-value="claret">Claret</a>
+        <a class="btn btn--secondary btn--sm" data-value="bordeaux">Bordeaux</a>
+        <a class="btn btn--secondary btn--sm" data-value="mulberry">Mulberry</a>
+        <a class="btn btn--secondary btn--sm" data-value="espresso">Espresso</a>
+        <a class="btn btn--secondary btn--sm" data-value="graphite">Graphite</a>
+        <a class="btn btn--secondary btn--sm" data-value="noir">Noir</a>
       </div>
       <span class="label">Logo</span>
       <div class="row" data-param="mark">
-        <a class="btn btn--secondary btn--sm" data-value="helix">Helix</a>
         <a class="btn btn--secondary btn--sm" data-value="h">H monogram</a>
+        <a class="btn btn--secondary btn--sm" data-value="helix">Helix</a>
         <a class="btn btn--secondary btn--sm" data-value="seal">Seal</a>
         <a class="btn btn--secondary btn--sm" data-value="none">Wordmark</a>
       </div>
@@ -64,18 +67,18 @@
     <p class="lede">Every value on this page comes from <code>brand/tokens.css</code>. Change a token there and the card, this sheet and the website all follow. The buttons above preview other palettes and logos without changing any files.</p>
 
     <h2>Logo</h2>
-    <p class="lede">The mark is a double helix whose strands swap over and under at each crossing, with accent-coloured rungs between them. Leave clear space around it at least as wide as the mark. Don't stretch, recolour or outline it.</p>
+    <p class="lede">The primary logo is the inline lockup: the H monogram on the left, HELIX and BIOLOGY on the right. The H's crossbar is a single DNA twist. Leave clear space around the logo at least the width of the H. Don't stretch, recolour or outline it. Use the stacked version only where the space is narrow and tall.</p>
     <div class="grid">
-      <div class="tile on-primary"><div class="lockup" style="font-size:40px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label" style="color:var(--c-on-primary-muted)">Stacked · on primary</span></div>
-      <div class="tile"><div class="lockup" style="font-size:40px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Stacked · on paper</span></div>
-      <div class="tile"><div class="lockup lockup--inline" style="font-size:30px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Inline · headers</span></div>
+      <div class="tile on-primary"><div class="lockup lockup--inline" style="font-size:32px"><svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label" style="color:var(--c-on-primary-muted)">Primary · on dark</span></div>
+      <div class="tile"><div class="lockup lockup--inline" style="font-size:32px"><svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Primary · on paper</span></div>
+      <div class="tile"><div class="lockup" style="font-size:32px"><svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Stacked · narrow spaces</span></div>
     </div>
     <p class="label" style="margin-top:var(--space-5)">All marks</p>
     <div class="grid">
-      <div class="tile on-primary"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Helix mark"><use href="/brand/logos.svg#mark-helix"/></svg><code style="color:var(--c-accent)">mark-helix</code></div>
-      <div class="tile"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="H monogram"><use href="/brand/logos.svg#mark-h"/></svg><code>mark-h</code></div>
-      <div class="tile on-primary"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code style="color:var(--c-accent)">mark-seal</code></div>
-      <div class="tile"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code>mark-seal</code></div>
+      <div class="tile on-primary"><svg width="96" height="96" aria-label="Helix mark"><use href="/brand/logos.svg#mark-helix"/></svg><code style="color:var(--c-accent)">mark-helix</code></div>
+      <div class="tile"><svg width="96" height="96" aria-label="H monogram"><use href="/brand/logos.svg#mark-h"/></svg><code>mark-h</code></div>
+      <div class="tile on-primary"><svg width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code style="color:var(--c-accent)">mark-seal</code></div>
+      <div class="tile"><svg width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code>mark-seal</code></div>
     </div>
 
     <h2>Colour</h2>
@@ -95,7 +98,7 @@
       <tr><td><code>--c-accent-tint</code></td><td>accent at subtle (16%)</td><td>chips, highlights</td></tr>
       <tr><td><code>--c-overlay</code></td><td>primary at strong (80%)</td><td>modal backdrop</td></tr>
       <tr><td><code>--opacity-disabled</code></td><td>0.4</td><td>disabled controls</td></tr>
-      <tr><td><code>--card-pattern-opacity</code></td><td>14%</td><td>helix watermark on the card front (0 hides it)</td></tr>
+      <tr><td><code>--card-pattern-opacity</code></td><td>0 (off)</td><td>optional line-art watermark on the card front; try 14%</td></tr>
     </table>
 
     <h2>Shape</h2>
