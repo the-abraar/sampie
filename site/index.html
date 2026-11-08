@@ -3,39 +3,147 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Helix Biology · For future doctors</title>
-  <meta name="description" content="Helix Biology: Biology coaching for classes 9–12 in Mohammadpur, Dhaka, by Samiul Alam, MBBS (DU). Website coming soon.">
+  <title>Helix Biology · Where future doctors begin</title>
+  <meta name="description" content="Helix Biology: Biology for classes 9–12 in Mohammadpur, Dhaka, led by Samiul Alam, MBBS (DU).">
+  <meta name="theme-color" content="#121212">
+  <meta property="og:title" content="Helix Biology · Where future doctors begin">
+  <meta property="og:description" content="Biology for classes 9–12 in Mohammadpur, Dhaka, led by Samiul Alam, MBBS (DU).">
+  <meta property="og:url" content="https://helixbiology.sch.ac/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/brand/tokens.css">
   <link rel="stylesheet" href="/brand/components.css">
+  <link rel="stylesheet" href="site.css">
   <script src="/brand/theme.js" defer></script>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: var(--space-7) var(--space-4); font-family: var(--font-text); text-align: center; }
-    main { width: 100%; display: flex; flex-direction: column; align-items: center; max-width: 28rem; }
-    .lockup { margin: 0; font-size: clamp(2.25rem, 9vw, 3.25rem); }
-    .rule { width: 3rem; border: 0; border-top: var(--stroke-hairline) solid var(--c-accent); margin: var(--space-5) 0 var(--space-4); }
-    .tagline { font: italic var(--weight-regular) var(--text-xl)/1.2 var(--font-display); color: var(--c-on-primary-muted); margin: 0; }
-    .meta { color: var(--c-on-primary-muted); font-size: var(--text-sm); margin: var(--space-5) 0 var(--space-6); line-height: var(--leading-body); }
-    .chip { background: color-mix(in srgb, var(--c-accent) var(--alpha-subtle), transparent); color: var(--c-accent); }
-    .actions { display: grid; gap: var(--space-3); width: 100%; max-width: 20rem; }
-    .actions .btn { height: var(--btn-height-lg); }
-    address { font-style: normal; color: var(--c-on-primary-muted); font-size: var(--text-sm); line-height: var(--leading-body); margin-top: var(--space-6); }
-  </style>
 </head>
-<body class="on-primary">
-  <main>
-    <h1 class="lockup lockup--inline" aria-label="Helix Biology">
-      <svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg>
-      <span class="lockup__words" aria-hidden="true"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></span>
-    </h1>
-    <hr class="rule">
-    <p class="tagline">For future doctors</p>
-    <p class="meta">Biology for classes 9–12 with Samiul Alam, MBBS (DU).<br>Our website is coming soon.</p>
-    <div class="actions">
-      <a class="btn btn--primary" href="https://wa.me/8801817521110">Message on WhatsApp</a>
-      <a class="btn btn--secondary" href="tel:+8801817521110">Call +880 1817-521110</a>
+<body>
+  <header class="site-header on-primary">
+    <div class="wrap">
+      <a class="lockup lockup--inline" href="#top" aria-label="Helix Biology, home">
+        <svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg>
+        <span class="lockup__words" aria-hidden="true"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#approach">Approach</a>
+        <a href="#classes">Classes</a>
+        <a href="#founder">Founder</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="btn btn--primary btn--sm" href="https://wa.me/8801817521110">WhatsApp</a>
     </div>
-    <address>28/10 Tajmahal Road, Block-C, Mohammadpur, Dhaka-1207<br>Opp. Bangabandhu Primary School</address>
+  </header>
+
+  <main id="top">
+    <section class="hero on-primary">
+      <svg class="hero__art" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg>
+      <div class="wrap">
+        <p class="eyebrow reveal">Biology · Classes 9–12 · Mohammadpur</p>
+        <h1 class="tagline reveal">Where future doctors <em>begin</em></h1>
+        <p class="lede reveal">Biology taught by a doctor, from the first cell in class nine to the last chapter of class twelve.</p>
+        <div class="actions reveal">
+          <a class="btn btn--primary btn--lg" href="https://wa.me/8801817521110">Message on WhatsApp</a>
+          <a class="btn btn--secondary btn--lg" href="tel:+8801817521110">Call +880 1817-521110</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <p class="eyebrow">Approach</p>
+          <h2 class="display">Biology, the way <em>medicine</em> uses it</h2>
+        </div>
+        <ol class="points">
+          <li class="reveal">
+            <h3>Taught by a doctor</h3>
+            <p>Every topic comes from someone who has used it, in the wards and in the exam hall.</p>
+          </li>
+          <li class="reveal">
+            <h3>Understanding first</h3>
+            <p>Each idea is built from how the body works, so the details have something to hold on to.</p>
+          </li>
+          <li class="reveal">
+            <h3>One subject, done well</h3>
+            <p>Helix teaches Biology and nothing else. All four years, start to finish.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="classes">
+      <div class="wrap">
+        <div class="section__head reveal">
+          <p class="eyebrow">Classes</p>
+          <h2 class="display">Four years, <em>one thread</em></h2>
+        </div>
+        <div class="classes">
+          <article class="class reveal">
+            <p class="class__grade"><small>Classes</small>9–10</p>
+            <h3>Foundations</h3>
+            <p>Cells, tissues, the systems of the body and the plant world. The groundwork every later chapter is built on.</p>
+          </article>
+          <article class="class reveal">
+            <p class="class__grade"><small>Classes</small>11–12</p>
+            <h3>Depth</h3>
+            <p>Botany and zoology in full, taught with the depth medical study will ask of you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="founder on-primary" id="founder">
+      <div class="wrap">
+        <div class="founder__mono reveal" aria-hidden="true">
+          <svg><use class="mark" href="/brand/logos.svg#mark-h"/></svg>
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Founder</p>
+          <h2 class="founder__name">Samiul Alam</h2>
+          <p class="founder__cred">MBBS (DU) · Founder, Helix Biology</p>
+          <p class="founder__body">Samiul studied medicine at the University of Dhaka. He started Helix Biology to teach the subject the way a doctor sees it: one connected system, not a list of facts to memorise.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="wrap visit">
+        <div class="reveal">
+          <p class="eyebrow">Visit</p>
+          <h2 class="display" style="margin-top: var(--space-4)">Come and <em>see us</em></h2>
+          <div class="actions">
+            <a class="btn btn--primary" href="https://wa.me/8801817521110">Message on WhatsApp</a>
+            <a class="btn btn--secondary" href="https://www.google.com/maps/search/?api=1&amp;query=28%2F10+Tajmahal+Road%2C+Block+C%2C+Mohammadpur%2C+Dhaka+1207">Open in Maps</a>
+          </div>
+        </div>
+        <dl class="contact reveal">
+          <div><dt>Call · WhatsApp</dt><dd><a href="tel:+8801817521110">+880 1817-521110</a></dd></div>
+          <div><dt>Address</dt><dd>28/10 Tajmahal Road, Block-C<br>Mohammadpur, Dhaka-1207<br><span class="muted">Opposite Bangabandhu Primary School</span></dd></div>
+        </dl>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer on-primary">
+    <div class="wrap">
+      <span class="lockup lockup--inline" aria-label="Helix Biology">
+        <svg class="lockup__mark" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-h"/></svg>
+        <span class="lockup__words" aria-hidden="true"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></span>
+      </span>
+      <p class="tagline">Where future doctors begin</p>
+      <small>© 2026 Helix Biology · Mohammadpur, Dhaka</small>
+    </div>
+  </footer>
+
+  <script>
+    // Fade sections in as they scroll into view. Without JS or IntersectionObserver, everything shows.
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+      }, { rootMargin: "0px 0px -8% 0px" });
+      for (const el of document.querySelectorAll(".reveal")) io.observe(el);
+    } else {
+      for (const el of document.querySelectorAll(".reveal")) el.classList.add("is-in");
+    }
+  </script>
 </body>
 </html>
