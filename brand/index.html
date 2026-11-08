@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" data-theme="ink" data-mark="helix">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helix Biology Brand</title>
+  <meta name="description" content="Helix Biology brand identity: logo, colour, transparency, shape, type and components.">
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <link rel="stylesheet" href="/brand/components.css">
+  <script src="/brand/theme.js" defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--c-paper); color: var(--c-ink); font: var(--weight-regular) var(--text-md)/var(--leading-body) var(--font-text); }
+    main { max-width: 1040px; margin: 0 auto; padding: var(--space-7) var(--space-4) var(--space-9); }
+    h1, h2 { font-family: var(--font-display); font-weight: var(--weight-medium); color: var(--c-primary); line-height: var(--leading-tight); margin: 0; }
+    h2 { font-size: var(--text-2xl); margin: var(--space-8) 0 var(--space-2); }
+    .lede { color: var(--c-text-muted); margin: 0 0 var(--space-5); max-width: 60ch; }
+    code { font-size: 0.85em; color: var(--c-accent-ink); }
+    .label { font-size: var(--text-xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--c-accent-ink); font-weight: var(--weight-medium); }
+    .grid { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    .tile { border-radius: var(--radius-card); padding: var(--space-6) var(--space-4); display: grid; place-items: center; gap: var(--space-3); min-height: 220px; border: var(--stroke-hairline) solid var(--c-border); }
+    .switch { position: sticky; top: 0; z-index: 2; background: color-mix(in srgb, var(--c-paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: var(--stroke-hairline) solid var(--c-border); }
+    .switch .inner { max-width: 1040px; margin: 0 auto; padding: var(--space-3) var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); align-items: center; }
+    .switch [aria-current="true"] { background: var(--c-primary); color: var(--c-on-primary); border-color: var(--c-primary); }
+    .swatch { border-radius: var(--radius-md); overflow: hidden; border: var(--stroke-hairline) solid var(--c-border); }
+    .swatch .chipcolor { height: 96px; }
+    .swatch .meta { padding: var(--space-3); font-size: var(--text-sm); }
+    .ramp { display: grid; grid-template-columns: 120px repeat(6, 1fr); gap: var(--space-2); align-items: center; font-size: var(--text-xs); }
+    .ramp div[data-a] { height: 48px; border-radius: var(--radius-sm); background-image: linear-gradient(45deg, #0001 25%, transparent 25%, transparent 75%, #0001 75%), linear-gradient(45deg, #0001 25%, transparent 25%, transparent 75%, #0001 75%); background-size: 12px 12px; background-position: 0 0, 6px 6px; position: relative; }
+    .ramp div[data-a]::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: color-mix(in srgb, var(--ramp) var(--a), transparent); }
+    .radius { width: 96px; height: 72px; background: var(--c-accent-tint); border: var(--stroke-hairline) solid var(--c-accent); }
+    .type-display { font-family: var(--font-display); font-size: var(--text-4xl); color: var(--c-primary); line-height: 1.1; }
+    .card-frame { width: 100%; height: 340px; border: 0; border-radius: var(--radius-card); }
+    table { border-collapse: collapse; width: 100%; font-size: var(--text-sm); }
+    td, th { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: var(--stroke-hairline) solid var(--c-border); vertical-align: top; }
+    th { font-weight: var(--weight-medium); color: var(--c-primary); }
+  </style>
+</head>
+<body>
+  <nav class="switch" aria-label="Preview options">
+    <div class="inner">
+      <span class="label">Palette</span>
+      <div class="row" data-param="theme">
+        <a class="btn btn--secondary btn--sm" data-value="ink">Ink &amp; Gold</a>
+        <a class="btn btn--secondary btn--sm" data-value="forest">Forest</a>
+        <a class="btn btn--secondary btn--sm" data-value="oxblood">Oxblood</a>
+        <a class="btn btn--secondary btn--sm" data-value="teal">Teal</a>
+        <a class="btn btn--secondary btn--sm" data-value="mono">Mono</a>
+      </div>
+      <span class="label">Logo</span>
+      <div class="row" data-param="mark">
+        <a class="btn btn--secondary btn--sm" data-value="helix">Helix</a>
+        <a class="btn btn--secondary btn--sm" data-value="h">H monogram</a>
+        <a class="btn btn--secondary btn--sm" data-value="seal">Seal</a>
+        <a class="btn btn--secondary btn--sm" data-value="none">Wordmark</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <span class="label">Brand identity</span>
+    <h1 class="type-display">Helix Biology</h1>
+    <p class="lede">Every value on this page comes from <code>brand/tokens.css</code>. Change a token there and the card, this sheet and the website all follow. The buttons above preview other palettes and logos without changing any files.</p>
+
+    <h2>Logo</h2>
+    <p class="lede">The mark is a double helix whose strands swap over and under at each crossing, with accent-coloured rungs between them. Leave clear space around it at least as wide as the mark. Don't stretch, recolour or outline it.</p>
+    <div class="grid">
+      <div class="tile on-primary"><div class="lockup" style="font-size:40px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label" style="color:var(--c-on-primary-muted)">Stacked · on primary</span></div>
+      <div class="tile"><div class="lockup" style="font-size:40px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Stacked · on paper</span></div>
+      <div class="tile"><div class="lockup lockup--inline" style="font-size:30px"><svg class="lockup__mark" viewBox="0 0 100 100" aria-hidden="true"><use class="mark" href="/brand/logos.svg#mark-helix"/></svg><div class="lockup__words"><span class="lockup__name">Helix</span><span class="lockup__sub">Biology</span></div></div><span class="label">Inline · headers</span></div>
+    </div>
+    <p class="label" style="margin-top:var(--space-5)">All marks</p>
+    <div class="grid">
+      <div class="tile on-primary"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Helix mark"><use href="/brand/logos.svg#mark-helix"/></svg><code style="color:var(--c-accent)">mark-helix</code></div>
+      <div class="tile"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="H monogram"><use href="/brand/logos.svg#mark-h"/></svg><code>mark-h</code></div>
+      <div class="tile on-primary"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code style="color:var(--c-accent)">mark-seal</code></div>
+      <div class="tile"><svg viewBox="0 0 100 100" width="96" height="96" aria-label="Seal"><use href="/brand/logos.svg#mark-seal"/></svg><code>mark-seal</code></div>
+    </div>
+
+    <h2>Colour</h2>
+    <p class="lede">Each palette has five colours. Use accent for decoration only: rules, rungs and focus rings. Small text on paper uses accent-ink. <code>npm run check</code> tests the contrast of every palette.</p>
+    <div class="grid" id="swatches"></div>
+
+    <h2>Transparency</h2>
+    <p class="lede">There is one alpha scale for everything see-through. Components use the semantic tokens on the right, never raw alpha values.</p>
+    <div class="ramp" style="margin-bottom:var(--space-2)"><span></span><span>ghost 4%</span><span>faint 8%</span><span>subtle 16%</span><span>muted 32%</span><span>medium 56%</span><span>strong 80%</span></div>
+    <div class="ramp" style="--ramp:var(--c-primary)"><span class="label">primary</span><div data-a style="--a:var(--alpha-ghost)"></div><div data-a style="--a:var(--alpha-faint)"></div><div data-a style="--a:var(--alpha-subtle)"></div><div data-a style="--a:var(--alpha-muted)"></div><div data-a style="--a:var(--alpha-medium)"></div><div data-a style="--a:var(--alpha-strong)"></div></div>
+    <div class="ramp" style="--ramp:var(--c-accent);margin-top:var(--space-2)"><span class="label">accent</span><div data-a style="--a:var(--alpha-ghost)"></div><div data-a style="--a:var(--alpha-faint)"></div><div data-a style="--a:var(--alpha-subtle)"></div><div data-a style="--a:var(--alpha-muted)"></div><div data-a style="--a:var(--alpha-medium)"></div><div data-a style="--a:var(--alpha-strong)"></div></div>
+    <table style="margin-top:var(--space-5)">
+      <tr><th>Token</th><th>Value</th><th>Used for</th></tr>
+      <tr><td><code>--c-border</code></td><td>ink at subtle (16%)</td><td>dividers, card outlines</td></tr>
+      <tr><td><code>--c-border-strong</code></td><td>ink at muted (32%)</td><td>inputs, secondary buttons</td></tr>
+      <tr><td><code>--c-hover</code> / <code>--c-pressed</code></td><td>primary at faint (8%) / subtle (16%)</td><td>hover and pressed tints</td></tr>
+      <tr><td><code>--c-accent-tint</code></td><td>accent at subtle (16%)</td><td>chips, highlights</td></tr>
+      <tr><td><code>--c-overlay</code></td><td>primary at strong (80%)</td><td>modal backdrop</td></tr>
+      <tr><td><code>--opacity-disabled</code></td><td>0.4</td><td>disabled controls</td></tr>
+      <tr><td><code>--card-pattern-opacity</code></td><td>14%</td><td>helix watermark on the card front (0 hides it)</td></tr>
+    </table>
+
+    <h2>Shape</h2>
+    <p class="lede">The corners are softly rounded. The semantic tokens decide which radius each element uses.</p>
+    <div class="row" style="gap:var(--space-5)">
+      <div><div class="radius" style="border-radius:var(--radius-0)"></div><code>0</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-xs)"></div><code>xs 2px</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-sm)"></div><code>sm 4px</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-md)"></div><code>md 8px</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-lg)"></div><code>lg 12px</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-xl)"></div><code>xl 20px</code></div>
+      <div><div class="radius" style="border-radius:var(--radius-pill)"></div><code>pill</code></div>
+    </div>
+    <table style="margin-top:var(--space-5)">
+      <tr><th>Element</th><th>Token</th><th>Default</th></tr>
+      <tr><td>Buttons</td><td><code>--radius-button</code></td><td>sm (4px)</td></tr>
+      <tr><td>Inputs</td><td><code>--radius-input</code></td><td>sm (4px)</td></tr>
+      <tr><td>Chips / tags</td><td><code>--radius-chip</code></td><td>pill</td></tr>
+      <tr><td>Cards / panels</td><td><code>--radius-card</code></td><td>lg (12px)</td></tr>
+      <tr><td>Images</td><td><code>--radius-image</code></td><td>md (8px)</td></tr>
+      <tr><td>Printed business card</td><td><code>--radius-print-corner</code></td><td>0, square cut</td></tr>
+    </table>
+
+    <h2>Type</h2>
+    <p class="lede">The brand uses two typefaces. Cormorant Garamond sets the wordmark, names and headings. Jost sets everything else.</p>
+    <div class="type-display">For future doctors</div>
+    <p style="font-family:var(--font-display);font-style:italic;font-size:var(--text-xl);color:var(--c-text-muted);margin:var(--space-2) 0 var(--space-5)">Cormorant Garamond: display, 400–600, italic</p>
+    <p style="font-size:var(--text-lg);margin:0">Biology for classes 9–12, taught by a doctor.</p>
+    <p style="color:var(--c-text-muted);margin:0">Jost: text, 300–500</p>
+
+    <h2>Buttons &amp; fields</h2>
+    <p class="lede">These are for the website. Hover, press and keyboard focus all come from the tokens. Disabled controls drop to 40% opacity.</p>
+    <div class="row"><button class="btn btn--primary btn--lg">Book a seat</button><button class="btn btn--primary">Book a seat</button><button class="btn btn--primary btn--sm">Book</button></div>
+    <div class="row" style="margin-top:var(--space-3)"><button class="btn btn--secondary">Call us</button><button class="btn btn--ghost">Learn more</button><button class="btn btn--accent">WhatsApp</button><button class="btn btn--primary" disabled>Disabled</button></div>
+    <div class="row on-primary" style="margin-top:var(--space-4);padding:var(--space-5);border-radius:var(--radius-card)"><button class="btn btn--primary">Book a seat</button><button class="btn btn--secondary">Call us</button><button class="btn btn--ghost">Learn more</button></div>
+    <div class="row" style="margin-top:var(--space-4)"><input class="input" placeholder="Student name" aria-label="Student name"><span class="chip">Class 11</span><span class="chip">Biology</span></div>
+
+    <h2>Business card</h2>
+    <p class="lede">3.5 × 2 in, matte finish, printed with 0.125 in bleed. <code>npm run build</code> writes the print PDF for every palette to <code>dist/</code>.</p>
+    <iframe class="card-frame" id="card" title="Business card preview" src="/card/"></iframe>
+  </main>
+
+  <script>
+    // Runs after theme.js (deferred) has applied ?theme / ?mark.
+    addEventListener("DOMContentLoaded", () => {
+      const root = document.documentElement;
+      for (const group of document.querySelectorAll("[data-param]")) {
+        const key = group.dataset.param;
+        for (const a of group.querySelectorAll("a")) {
+          const p = new URLSearchParams(location.search);
+          p.set(key, a.dataset.value);
+          a.href = "?" + p;
+          a.setAttribute("aria-current", String(root.dataset[key] === a.dataset.value));
+        }
+      }
+      document.getElementById("card").src = "/card/" + location.search;
+      const names = { primary: "Primary", paper: "Paper", accent: "Accent", ink: "Ink", "accent-ink": "Accent ink" };
+      const cs = getComputedStyle(root);
+      document.getElementById("swatches").innerHTML = Object.entries(names).map(([k, label]) =>
+        `<div class="swatch"><div class="chipcolor" style="background:var(--c-${k})"></div><div class="meta"><strong>${label}</strong><br><code>--c-${k}</code> ${cs.getPropertyValue("--c-" + k).trim()}</div></div>`).join("");
+    });
+  </script>
+</body>
+</html>

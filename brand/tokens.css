@@ -1,0 +1,181 @@
+/* Helix Biology: brand tokens.
+   The ONE place to change the brand. Card, brand sheet and website only read these.
+   Switch palette: set data-theme on <html> (or any element). Add a palette: copy a theme block. */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap");
+
+/* ── 1. Palettes ─────────────────────────────────────────────────────────────
+   Each theme sets only five colours. Everything else is derived below.
+   primary    dark brand colour: card front, headings, primary buttons
+   paper      light ground: card back, page background
+   accent     decorative highlight: rules, helix rungs, focus ring (not for small text)
+   ink        body text on paper
+   accent-ink accent dark enough for small text on paper (≥ 4.5:1)
+   `npm run check` verifies the contrast of every theme. */
+
+:root,
+[data-theme="ink"] {        /* Ink & Gold: navy, ivory, muted gold. Default. */
+  --c-primary: #0F1C2E;
+  --c-paper: #F6F2EA;
+  --c-accent: #B08D57;
+  --c-ink: #18202C;
+  --c-accent-ink: #7E6033;
+}
+
+[data-theme="forest"] {     /* Forest & Copper */
+  --c-primary: #14291F;
+  --c-paper: #F4F1E8;
+  --c-accent: #B8895A;
+  --c-ink: #17221B;
+  --c-accent-ink: #7A5530;
+}
+
+[data-theme="oxblood"] {    /* Oxblood & Rose */
+  --c-primary: #3A1218;
+  --c-paper: #F7F0EA;
+  --c-accent: #C9A086;
+  --c-ink: #2A1A1C;
+  --c-accent-ink: #85503A;
+}
+
+[data-theme="teal"] {       /* Deep Teal & Mint: the most "clinical" option */
+  --c-primary: #0E2E33;
+  --c-paper: #F3F6F5;
+  --c-accent: #5FB8A6;
+  --c-ink: #14262A;
+  --c-accent-ink: #2A6E61;
+}
+
+[data-theme="mono"] {       /* Black & White: cheapest to print, photocopies well */
+  --c-primary: #141414;
+  --c-paper: #FFFFFF;
+  --c-accent: #A3A3A3;
+  --c-ink: #141414;
+  --c-accent-ink: #5E5E5E;
+}
+
+/* ── 2. Transparency ─────────────────────────────────────────────────────────
+   One alpha scale for everything see-through. Use the semantic tokens below, not raw values. */
+:root {
+  --alpha-ghost: 4%;    /* barely there: background patterns, row stripes */
+  --alpha-faint: 8%;    /* hover tint, card watermark */
+  --alpha-subtle: 16%;  /* borders, dividers */
+  --alpha-muted: 32%;   /* strong borders, pressed tint */
+  --alpha-medium: 56%;  /* helix rungs, disabled text */
+  --alpha-strong: 80%;  /* overlays / modal backdrop */
+  --opacity-disabled: 0.4;
+}
+
+/* Derived colours. Declared on [data-theme] too, so a themed element recomputes them. */
+:root,
+[data-theme] {
+  --c-on-primary: var(--c-paper);
+  --c-on-primary-muted: color-mix(in srgb, var(--c-paper) 72%, var(--c-primary));
+  --c-text-muted: color-mix(in srgb, var(--c-ink) 72%, var(--c-paper));      /* opaque: safe for print */
+  --c-border: color-mix(in srgb, var(--c-ink) var(--alpha-subtle), transparent);
+  --c-border-strong: color-mix(in srgb, var(--c-ink) var(--alpha-muted), transparent);
+  --c-border-on-primary: color-mix(in srgb, var(--c-paper) var(--alpha-subtle), transparent);
+  --c-hover: color-mix(in srgb, var(--c-primary) var(--alpha-faint), transparent);
+  --c-pressed: color-mix(in srgb, var(--c-primary) var(--alpha-subtle), transparent);
+  --c-accent-tint: color-mix(in srgb, var(--c-accent) var(--alpha-subtle), transparent);
+  --c-overlay: color-mix(in srgb, var(--c-primary) var(--alpha-strong), transparent);
+  --c-primary-hover: color-mix(in srgb, var(--c-primary) 86%, var(--c-paper));
+  --c-primary-pressed: color-mix(in srgb, var(--c-primary) 92%, black);
+  --c-focus: var(--c-accent);
+
+  /* Logo colours. Contexts override these (e.g. the card front sets fg to paper). */
+  --logo-fg: var(--c-primary);
+  --logo-detail: var(--c-accent);
+  --logo-bg: var(--c-paper);           /* knock-out gap where strands cross; transparent = no gap */
+  --qr-fg: var(--c-primary);
+}
+
+/* ── 3. Shape: corner roundness ──────────────────────────────────────────── */
+:root {
+  --radius-0: 0;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* What uses which. Change the brand's softness here. */
+  --radius-button: var(--radius-sm);
+  --radius-input: var(--radius-sm);
+  --radius-chip: var(--radius-pill);
+  --radius-card: var(--radius-lg);
+  --radius-image: var(--radius-md);
+  --radius-print-corner: 0;            /* business card corners. 0.125in if the printer die-cuts round corners */
+}
+
+/* ── 4. Type ─────────────────────────────────────────────────────────────── */
+:root {
+  --font-display: "Cormorant Garamond", "Cormorant", Georgia, serif;   /* wordmark, names, headings */
+  --font-text: "Jost", "Futura", "Helvetica Neue", Arial, sans-serif;  /* details, body, buttons */
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --tracking-wordmark: 0.32em;   /* HELIX */
+  --tracking-caps: 0.18em;       /* small uppercase labels */
+  --tracking-button: 0.08em;
+
+  /* Web type scale (1.25 ratio) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+  --leading-tight: 1.15;
+  --leading-body: 1.6;
+}
+
+/* ── 5. Space, lines, depth, motion ──────────────────────────────────────── */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  --stroke-hairline: 1px;      /* web */
+  --stroke-print: 0.5pt;       /* print hairline: thinnest that holds on matte stock */
+
+  --shadow-sm: 0 1px 2px color-mix(in srgb, var(--c-primary) 10%, transparent);
+  --shadow-md: 0 2px 4px color-mix(in srgb, var(--c-primary) 6%, transparent),
+               0 8px 24px color-mix(in srgb, var(--c-primary) 10%, transparent);
+  --focus-ring: 0 0 0 2px var(--c-paper), 0 0 0 4px var(--c-focus);
+
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* ── 6. Components ───────────────────────────────────────────────────────── */
+:root {
+  --btn-height-sm: 32px;
+  --btn-height-md: 42px;
+  --btn-height-lg: 52px;
+  --btn-pad-x: var(--space-5);
+  --btn-font-size: var(--text-sm);
+  --btn-weight: var(--weight-medium);
+  --btn-uppercase: uppercase;    /* set to none for sentence-case buttons */
+
+  --input-height: 44px;
+
+  --logo-stroke: 6;              /* helix strand width, in 100-unit logo space */
+  --logo-detail-stroke: 3;       /* rungs / twist */
+  --logo-halo: 14;               /* gap width at crossings */
+
+  --card-pattern-opacity: 14%;   /* line-art helix watermark on the card front; 0 hides it */
+}

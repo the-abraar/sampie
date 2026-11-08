@@ -1,0 +1,110 @@
+/* Business card: 3.5 × 2 in, matte. Print file = trim + 0.125in bleed each side.
+   Colours, fonts, logo all come from /brand/tokens.css. Only print geometry and type sizes live here. */
+
+@page { size: 3.75in 2.25in; margin: 0; }
+
+:root {
+  --trim-w: 3.5in;
+  --trim-h: 2in;
+  --bleed: 0.125in;
+  --safe: 0.1875in;   /* keep text this far inside the trim line */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+.side {
+  position: relative;
+  width: calc(var(--trim-w) + 2 * var(--bleed));
+  height: calc(var(--trim-h) + 2 * var(--bleed));
+  overflow: hidden;
+}
+.frame { break-after: page; }
+.trim { position: absolute; inset: var(--bleed); padding: var(--safe); }
+
+/* ── Front: brand side ───────────────────────────────────────────────────── */
+.side--front {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+  --logo-fg: var(--c-paper);
+  --logo-bg: var(--c-primary);
+}
+.front { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.front .lockup { font-size: 19pt; }
+.front .lockup__mark { width: 0.44in; height: 0.44in; margin-bottom: 0.1in; }
+.front .lockup__sub { font-size: 5.5pt; margin-top: 0.075in; }
+.rule { width: 0.3in; border: 0; border-top: var(--stroke-print) solid var(--c-accent); margin: 0.11in auto 0.085in; }
+.tagline {
+  font: italic var(--weight-regular) 9pt/1 var(--font-display);
+  letter-spacing: 0.02em;
+  color: var(--c-on-primary-muted);
+}
+.watermark {
+  position: absolute;
+  width: 2.6in; height: 2.6in;
+  right: -1.05in; top: -0.2in;
+  transform: rotate(-28deg);
+  opacity: var(--card-pattern-opacity);
+  --logo-stroke: 2;
+  --logo-detail-stroke: 1;
+  --logo-fg: var(--c-paper);
+  --logo-detail: var(--c-paper);
+  --logo-bg: transparent;
+}
+
+/* ── Back: the person ────────────────────────────────────────────────────── */
+.side--back { background: var(--c-paper); color: var(--c-ink); }
+.back {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  column-gap: 0.15in;
+}
+.who { grid-area: 1 / 1; }
+.name { font: var(--weight-medium) 13pt/1 var(--font-display); letter-spacing: 0.01em; color: var(--c-primary); }
+.cred {
+  margin-top: 0.045in;
+  font: var(--weight-medium) 5.5pt/1 var(--font-text);
+  letter-spacing: var(--tracking-caps);
+  color: var(--c-accent-ink);
+}
+.role { margin-top: 0.055in; font: var(--weight-regular) 7pt/1 var(--font-text); color: var(--c-text-muted); }
+
+.corner-mark { grid-area: 1 / 2; justify-self: end; width: 0.26in; height: 0.26in; }
+
+.details {
+  grid-area: 3 / 1;
+  display: grid;
+  grid-template-columns: 0.8in 1fr;
+  column-gap: 0.06in;
+  row-gap: 0.045in;
+  align-items: baseline;
+}
+.details dt {
+  font: var(--weight-medium) 5pt/1 var(--font-text);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--c-accent-ink);
+}
+.details dd { font: var(--weight-regular) 7pt/1.4 var(--font-text); color: var(--c-ink); }
+.details .muted { color: var(--c-text-muted); }
+
+.qr { grid-area: 3 / 2; align-self: end; justify-self: end; width: 0.62in; height: 0.62in; display: block; }
+
+/* ── Screen preview: trimmed cards side by side (print ignores this) ─────── */
+@media screen {
+  body {
+    min-height: 100vh;
+    display: flex; flex-wrap: wrap; gap: 48px;
+    align-items: center; justify-content: center;
+    padding: 48px;
+    background: #E2DFD8;
+  }
+  .frame {
+    width: var(--trim-w); height: var(--trim-h);
+    overflow: hidden; flex: none;
+    border-radius: var(--radius-print-corner);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.14), 0 10px 28px rgb(0 0 0 / 0.14);
+  }
+  .frame > .side { margin: calc(-1 * var(--bleed)); }
+}

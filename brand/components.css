@@ -1,0 +1,109 @@
+/* Helix Biology: components. Built only from tokens.css; restyle the brand there, not here. */
+
+/* ── Logo lockup ─────────────────────────────────────────────────────────── */
+.lockup { display: inline-flex; flex-direction: column; align-items: center; color: var(--logo-fg); }
+.lockup--inline { flex-direction: row; gap: 0.6em; }
+.lockup--inline .lockup__words { align-items: flex-start; }
+.lockup__mark { width: 2.4em; height: 2.4em; display: block; }
+[data-mark="none"] .lockup__mark { display: none; }
+.lockup__words { display: flex; flex-direction: column; align-items: center; }
+.lockup__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-medium);
+  font-size: 1em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wordmark);
+  margin-right: calc(-1 * var(--tracking-wordmark)); /* tracking adds space after the last letter; this re-centres it */
+}
+.lockup__sub {
+  font-family: var(--font-text);
+  font-weight: var(--weight-regular);
+  font-size: 0.3em;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-right: -0.5em;
+  margin-top: 0.7em;
+  color: var(--logo-detail);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: var(--btn-height-md);
+  padding: 0 var(--btn-pad-x);
+  border: var(--stroke-hairline) solid transparent;
+  border-radius: var(--radius-button);
+  font: var(--btn-weight) var(--btn-font-size) / 1 var(--font-text);
+  letter-spacing: var(--tracking-button);
+  text-transform: var(--btn-uppercase);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-standard),
+              border-color var(--duration-fast) var(--ease-standard),
+              color var(--duration-fast) var(--ease-standard);
+}
+.btn:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: var(--opacity-disabled); pointer-events: none; }
+
+.btn--sm { height: var(--btn-height-sm); padding: 0 var(--space-4); font-size: var(--text-xs); }
+.btn--lg { height: var(--btn-height-lg); padding: 0 var(--space-6); }
+
+.btn--primary { background: var(--c-primary); color: var(--c-on-primary); }
+.btn--primary:hover { background: var(--c-primary-hover); }
+.btn--primary:active { background: var(--c-primary-pressed); }
+
+.btn--secondary { background: transparent; color: var(--c-primary); border-color: var(--c-border-strong); }
+.btn--secondary:hover { background: var(--c-hover); border-color: var(--c-primary); }
+.btn--secondary:active { background: var(--c-pressed); }
+
+.btn--ghost { background: transparent; color: var(--c-primary); }
+.btn--ghost:hover { background: var(--c-hover); }
+.btn--ghost:active { background: var(--c-pressed); }
+
+.btn--accent { background: var(--c-accent); color: var(--c-primary); }
+.btn--accent:hover { background: color-mix(in srgb, var(--c-accent) 88%, var(--c-paper)); }
+.btn--accent:active { background: color-mix(in srgb, var(--c-accent) 88%, var(--c-primary)); }
+
+/* On a dark (primary) surface */
+.on-primary { background: var(--c-primary); color: var(--c-on-primary); --logo-fg: var(--c-paper); --logo-bg: var(--c-primary); --c-focus: var(--c-accent); }
+.on-primary .btn--primary { background: var(--c-paper); color: var(--c-primary); }
+.on-primary .btn--primary:hover { background: color-mix(in srgb, var(--c-paper) 88%, var(--c-primary)); }
+.on-primary .btn--secondary,
+.on-primary .btn--ghost { color: var(--c-paper); border-color: var(--c-border-on-primary); }
+.on-primary .btn--secondary:hover,
+.on-primary .btn--ghost:hover { background: color-mix(in srgb, var(--c-paper) var(--alpha-faint), transparent); }
+
+/* ── Form fields ─────────────────────────────────────────────────────────── */
+.input {
+  height: var(--input-height);
+  padding: 0 var(--space-4);
+  border: var(--stroke-hairline) solid var(--c-border-strong);
+  border-radius: var(--radius-input);
+  background: var(--c-paper);
+  color: var(--c-ink);
+  font: var(--weight-regular) var(--text-md) / 1 var(--font-text);
+}
+.input::placeholder { color: var(--c-text-muted); }
+.input:hover { border-color: var(--c-primary); }
+.input:focus-visible { outline: none; border-color: var(--c-primary); box-shadow: var(--focus-ring); }
+
+/* ── Chip & surface ──────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex; align-items: center;
+  height: 28px; padding: 0 var(--space-3);
+  border-radius: var(--radius-chip);
+  background: var(--c-accent-tint); color: var(--c-accent-ink);
+  font: var(--weight-medium) var(--text-xs) / 1 var(--font-text);
+  letter-spacing: var(--tracking-caps); text-transform: uppercase;
+}
+.surface {
+  background: var(--c-paper);
+  border: var(--stroke-hairline) solid var(--c-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-sm);
+}
