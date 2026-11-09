@@ -135,17 +135,17 @@ h1, h2, h3, p { margin: 0; }
 .contact .muted { color: var(--c-text-muted); font-size: var(--text-md); }
 .visit .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
-/* ── Enrol ── */
-.enrol { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
-.enrol__lede { margin-top: var(--space-5); max-width: 30rem; font-size: var(--text-lg); font-weight: var(--weight-light); }
-.enrol__form { display: grid; gap: var(--space-5); }
+/* ── Enroll ── */
+.enroll { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+.enroll__lede { margin-top: var(--space-5); max-width: 30rem; font-size: var(--text-lg); font-weight: var(--weight-light); }
+.enroll__form { display: grid; gap: var(--space-5); }
 .field { display: grid; gap: var(--space-2); }
 .field span { font: var(--weight-medium) var(--text-xs) / 1.4 var(--font-text); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--c-text-muted); }
 .field em { text-transform: none; letter-spacing: 0; font-style: normal; }
 .field .input { width: 100%; }
-.enrol__msg { min-height: 1.5em; margin: 0; }
-.enrol__msg.is-error { color: #b3261e; }
-.enrol__msg.is-ok { font-weight: var(--weight-medium); }
+.enroll__msg { min-height: 1.5em; margin: 0; }
+.enroll__msg.is-error { color: #b3261e; }
+.enroll__msg.is-ok { font-weight: var(--weight-medium); }
 
 /* ── Footer ───────────────────────────────────────────────────────────────── */
 .site-footer { padding: var(--space-8) 0 var(--space-6); }
@@ -166,7 +166,7 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 860px) {
   .nav { display: none; }
   .site-header .btn { margin-left: auto; }
-  .points, .classes, .visit, .enrol, .founder .wrap { grid-template-columns: minmax(0, 1fr); }
+  .points, .classes, .visit, .enroll, .founder .wrap { grid-template-columns: minmax(0, 1fr); }
   .points { gap: var(--space-6); }
   .founder__mono { aspect-ratio: 16 / 9; }
   .founder__mono svg { width: auto; height: 50%; }

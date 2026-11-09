@@ -6,7 +6,7 @@
 - [ ] **Print run:** choose the quantity for each tagline (`where-future-doctors-begin` is the main one, `for-future-doctors` is the alternative). Stock: matte, 3.5 × 2 in, square corners.
 - [ ] **Website copy review:** Samiul should read and approve every line on helixbiology.sch.ac. These were written without his input: the Approach points, the class descriptions, and the founder paragraph.
 - [ ] **Founder photo:** a portrait to replace the H monogram panel in the Founder section (4:5, plain dark background).
-- [ ] **Class details:** batch times, days, fees and how to enrol. None of these are on the site yet.
+- [ ] **Class details:** batch times, days, fees and how to enroll. None of these are on the site yet.
 - [ ] **Map pin:** "Open in Maps" drops an approximate pin (23.7612, 90.3586) near Tajmahal Road, Block C. Replace with the exact coordinates.
 
 ## Website, next

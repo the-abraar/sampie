@@ -28,7 +28,7 @@
         <a href="#classes">Classes</a>
         <a href="#founder">Founder</a>
         <a href="#visit">Visit</a>
-        <a href="#enrol">Enrol</a>
+        <a href="#enroll">Enroll</a>
       </nav>
       <a class="btn btn--primary btn--sm" href="https://wa.me/8801817521110">WhatsApp</a>
     </div>
@@ -123,14 +123,14 @@
       </div>
     </section>
 
-    <section class="section" id="enrol">
-      <div class="wrap enrol">
+    <section class="section" id="enroll">
+      <div class="wrap enroll">
         <div class="reveal">
-          <p class="eyebrow">Enrol now</p>
+          <p class="eyebrow">Enroll now</p>
           <h2 class="display" style="margin-top: var(--space-4)">Try a week, <em>pay nothing</em></h2>
-          <p class="enrol__lede">Join with a referral code and get <strong>10% off the next 3 months</strong> once you continue. Nothing upfront: attend a one-week demo class, and if it isn't for you, no issues.</p>
+          <p class="enroll__lede">Join with a referral code and get <strong>10% off the next 3 months</strong> once you continue. Nothing upfront: attend a one-week demo class, and if it isn't for you, no issues.</p>
         </div>
-        <form class="enrol__form reveal" id="enrol-form" novalidate>
+        <form class="enroll__form reveal" id="enroll-form" novalidate>
           <label class="field"><span>Student's name</span><input class="input" name="student" autocomplete="name" required></label>
           <label class="field"><span>Guardian's phone number</span><input class="input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" pattern="(\+?88)?01[3-9][0-9]{8}" required></label>
           <label class="field"><span>Class</span>
@@ -141,8 +141,8 @@
           </label>
           <label class="field"><span>Institute</span><input class="input" name="institute" required></label>
           <label class="field"><span>Referral code <em>(optional)</em></span><input class="input" name="code" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="early-bird-batch-3"></label>
-          <p class="enrol__msg" id="enrol-msg" role="status"></p>
-          <button class="btn btn--primary" type="submit">Enrol on WhatsApp</button>
+          <p class="enroll__msg" id="enroll-msg" role="status"></p>
+          <button class="btn btn--primary" type="submit">Enroll on WhatsApp</button>
         </form>
       </div>
     </section>
@@ -170,11 +170,11 @@
       for (const el of document.querySelectorAll(".reveal")) el.classList.add("is-in");
     }
 
-    // Enrolment: check the referral code, fire confetti, open WhatsApp with the details.
+    // Enrolllment: check the referral code, fire confetti, open WhatsApp with the details.
     (() => {
       const CODE = "early-bird-batch-3"; // the only valid code for now
-      const form = document.getElementById("enrol-form");
-      const msg = document.getElementById("enrol-msg");
+      const form = document.getElementById("enroll-form");
+      const msg = document.getElementById("enroll-msg");
       const code = form.elements.code;
       const fromUrl = new URLSearchParams(location.search).get("code"); // card link: ?code=early-bird-batch-3
       if (fromUrl) code.value = fromUrl;
@@ -208,16 +208,16 @@
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        msg.textContent = ""; msg.className = "enrol__msg";
+        msg.textContent = ""; msg.className = "enroll__msg";
         if (!form.checkValidity()) { form.reportValidity(); return; }
         const d = Object.fromEntries(new FormData(form));
         const entered = d.code.trim().toLowerCase();
         if (entered && entered !== CODE) {
-          msg.textContent = "That referral code isn't valid. Check it, or clear the box to enrol without one.";
-          msg.className = "enrol__msg is-error"; code.focus(); return;
+          msg.textContent = "That referral code isn't valid. Check it, or clear the box to enroll without one.";
+          msg.className = "enroll__msg is-error"; code.focus(); return;
         }
         const text = [
-          "New enrolment (Helix Biology)",
+          "New enrolllment (Helix Biology)",
           "Student: " + d.student.trim(),
           "Guardian phone: " + d.phone.trim(),
           "Class: " + d.grade,
@@ -227,7 +227,7 @@
         const url = "https://wa.me/8801817521110?text=" + encodeURIComponent(text);
         confetti();
         window.open(url, "_blank", "noopener");
-        msg.className = "enrol__msg is-ok";
+        msg.className = "enroll__msg is-ok";
         msg.replaceChildren("You're in! If WhatsApp didn't open, ");
         const a = Object.assign(document.createElement("a"), { href: url, textContent: "tap here to send your details", target: "_blank", rel: "noopener" });
         msg.append(a, ".");
