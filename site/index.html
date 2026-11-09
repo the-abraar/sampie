@@ -28,6 +28,7 @@
         <a href="#classes">Classes</a>
         <a href="#founder">Founder</a>
         <a href="#visit">Visit</a>
+        <a href="#enrol">Enrol</a>
       </nav>
       <a class="btn btn--primary btn--sm" href="https://wa.me/8801817521110">WhatsApp</a>
     </div>
@@ -121,6 +122,30 @@
         </dl>
       </div>
     </section>
+
+    <section class="section" id="enrol">
+      <div class="wrap enrol">
+        <div class="reveal">
+          <p class="eyebrow">Enrol now</p>
+          <h2 class="display" style="margin-top: var(--space-4)">Try a week, <em>pay nothing</em></h2>
+          <p class="enrol__lede">Join with a referral code and get <strong>10% off the next 3 months</strong> once you continue. Nothing upfront: attend a one-week demo class, and if it isn't for you, no issues.</p>
+        </div>
+        <form class="enrol__form reveal" id="enrol-form" novalidate>
+          <label class="field"><span>Student's name</span><input class="input" name="student" autocomplete="name" required></label>
+          <label class="field"><span>Guardian's phone number</span><input class="input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX" pattern="(\+?88)?01[3-9][0-9]{8}" required></label>
+          <label class="field"><span>Class</span>
+            <select class="input" name="grade" required>
+              <option value="" selected disabled>Select class</option>
+              <option>9</option><option>10</option><option>11</option><option>12</option>
+            </select>
+          </label>
+          <label class="field"><span>Institute</span><input class="input" name="institute" required></label>
+          <label class="field"><span>Referral code <em>(optional)</em></span><input class="input" name="code" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="early-bird-batch-3"></label>
+          <p class="enrol__msg" id="enrol-msg" role="status"></p>
+          <button class="btn btn--primary" type="submit">Enrol on WhatsApp</button>
+        </form>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer on-primary">
@@ -144,6 +169,70 @@
     } else {
       for (const el of document.querySelectorAll(".reveal")) el.classList.add("is-in");
     }
+
+    // Enrolment: check the referral code, fire confetti, open WhatsApp with the details.
+    (() => {
+      const CODE = "early-bird-batch-3"; // the only valid code for now
+      const form = document.getElementById("enrol-form");
+      const msg = document.getElementById("enrol-msg");
+      const code = form.elements.code;
+      const fromUrl = new URLSearchParams(location.search).get("code"); // card link: ?code=early-bird-batch-3
+      if (fromUrl) code.value = fromUrl;
+
+      function confetti() {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const c = document.createElement("canvas");
+        c.setAttribute("aria-hidden", "true");
+        c.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:99";
+        c.width = innerWidth; c.height = innerHeight;
+        document.body.append(c);
+        const g = c.getContext("2d");
+        const colors = ["#c9a227", "#f4f1ea", "#e5484d", "#3e9b6d", "#4c8bf5"];
+        const bits = Array.from({ length: 160 }, () => ({
+          x: c.width / 2, y: c.height * 0.6,
+          vx: (Math.random() - 0.5) * 16, vy: -Math.random() * 16 - 4,
+          s: 5 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - 0.5) * 0.4,
+          col: colors[(Math.random() * colors.length) | 0],
+        }));
+        const end = performance.now() + 3000;
+        (function frame(t) {
+          g.clearRect(0, 0, c.width, c.height);
+          for (const b of bits) {
+            b.vy += 0.35; b.vx *= 0.99; b.x += b.vx; b.y += b.vy; b.r += b.vr;
+            g.save(); g.translate(b.x, b.y); g.rotate(b.r);
+            g.fillStyle = b.col; g.fillRect(-b.s / 2, -b.s / 3, b.s, b.s * 0.6); g.restore();
+          }
+          t < end ? requestAnimationFrame(frame) : c.remove();
+        })(performance.now());
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        msg.textContent = ""; msg.className = "enrol__msg";
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        const d = Object.fromEntries(new FormData(form));
+        const entered = d.code.trim().toLowerCase();
+        if (entered && entered !== CODE) {
+          msg.textContent = "That referral code isn't valid. Check it, or clear the box to enrol without one.";
+          msg.className = "enrol__msg is-error"; code.focus(); return;
+        }
+        const text = [
+          "New enrolment (Helix Biology)",
+          "Student: " + d.student.trim(),
+          "Guardian phone: " + d.phone.trim(),
+          "Class: " + d.grade,
+          "Institute: " + d.institute.trim(),
+          "Referral code: " + (entered ? CODE + " (10% off next 3 months)" : "none"),
+        ].join("\n");
+        const url = "https://wa.me/8801817521110?text=" + encodeURIComponent(text);
+        confetti();
+        window.open(url, "_blank", "noopener");
+        msg.className = "enrol__msg is-ok";
+        msg.replaceChildren("You're in! If WhatsApp didn't open, ");
+        const a = Object.assign(document.createElement("a"), { href: url, textContent: "tap here to send your details", target: "_blank", rel: "noopener" });
+        msg.append(a, ".");
+      });
+    })();
   </script>
 </body>
 </html>
